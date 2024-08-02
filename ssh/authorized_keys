@@ -1,1 +1,2 @@
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqdwY5X2QaryVTBnC792fX+5KnHkt1c5QV67me2Er3z
+# This public key is freshly generated with ssh-keygen -t ed25519 -C and considered throwaway together with her private pair
