@@ -60,6 +60,7 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     # Run the Prometheus command with the configuration file we just mounted
     command: --config.file=/etc/prometheus/prometheus.yml
+    # The Prometheus app is available on http://localhost:9090
     ports:
       - 9090:9090
     networks:
@@ -71,6 +72,7 @@ services:
       
   grafana:
     image: grafana/grafana:latest
+    # The Grafana app is available on http://localhost:3000, with the defaults admin/admin
     ports:
       - 3000:3000
     # Mount the Grafana provisioning directory, to save dashboards jsons
@@ -98,6 +100,8 @@ services:
     # Run the SSH startup script
     command: sh -c "/start-ssh.sh"
     # Map port 8080 on the host to port 8080 in the container app and port 2224 on the host to port 22 in the container for sshd
+    # The SSH server is available via: ssh -vvv -p 2224 root@localhost
+    # The Cadvisor app is available on http://localhost:8080
     ports:
       - 8080:8080
       - 2224:22
