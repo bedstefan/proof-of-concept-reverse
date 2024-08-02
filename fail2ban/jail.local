@@ -1,0 +1,23 @@
+# Default settings
+[DEFAULT]
+  # Ignore IP address 127.0.0.1 (localhost) from banning
+  ignoreip = 127.0.0.1
+  # Ban an IP address for 3600 seconds (1 hour) after a certain number of failed attempts
+  bantime = 3600
+  # Look for failed attempts in the last 600 seconds
+  findtime = 600
+  # Allow 3 failed attempts before banning
+  maxretry = 3
+
+# SSH-specific settings
+[ssh]
+  # Enable Fail2Ban for SSH
+  enabled = true
+  # Monitor the SSH port (22)
+  port = ssh
+  # Use the sshd filter to parse the log file
+  filter = sshd
+  # Specify the log file to monitor for failed SSH attempts
+  logpath = /var/log/auth.log
+  # Allow 3 failed SSH attempts before banning (override default maxretry)
+  maxretry = 3

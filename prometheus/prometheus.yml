@@ -1,0 +1,6 @@
+scrape_configs:
+  # Define a scrape job named 'nginx', where we will have series from both servers
+  - job_name: 'nginx'
+    static_configs:
+      # Scrape metrics from the nginx service on port 9113 and nginx-ssl service on port 9114, that we have already defined in nginx
+      - targets: ['nginx:9113', 'nginx-ssl:9114']
